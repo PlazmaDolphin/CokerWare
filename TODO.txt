@@ -1,0 +1,41 @@
+===THE COKERWARE EXPERIENCE===
+
+Same idea as WarioWare
+Microgames (3-7 seconds per game)
+Collections based on control method:
+	Mouse (Click, drag, flick, hover, scroll)
+	Keyboard (WASD, Space, enter)
+	Controller (Control Sticks, trigger)
+Inspirations:
+	WarioWare Microgames
+	Among Us Tasks
+
+Mouse Microgames:
+
+1. Click in order
+	Circles from 1-X displayed
+	Click on each in order
+	Biggest circle first, smallest last
+	Higher Levels: more numbers, sizes not in order
+To program:
+	Spawn circles of various sizes
+	Make sure they dont touch/overlap
+	Register clicks on them
+	Give each circle a number
+	Ensure proper order (1, 2, 3, 4)
+	Indicate circle was clicked
+
+To program any microgame:
+	- Timer
+	- Win condition
+	- Lose condition
+	- transition
+	- command
+	- difficulty control
+
+To Program hub:
+	- scene transition
+	- display score, lives, level, (speed?)
+	- art (background, sprites, audio)
+	- lose animation
+	- share data between scenes

@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\plazm\\CokerWare\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|c:\\users\\plazm\\cokerware\\assets\\dispatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|solutionrelative:assets\\dispatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|C:\\Users\\plazm\\CokerWare\\assets\\lifecount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|solutionrelative:assets\\lifecount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|C:\\Users\\plazm\\CokerWare\\assets\\scorecount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|solutionrelative:assets\\scorecount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|C:\\Users\\plazm\\CokerWare\\assets\\bartimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|solutionrelative:assets\\bartimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|C:\\Users\\plazm\\CokerWare\\assets\\spawnscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|solutionrelative:assets\\spawnscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|C:\\Users\\plazm\\CokerWare\\assets\\camzoom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|solutionrelative:assets\\camzoom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|C:\\Users\\plazm\\CokerWare\\assets\\thecircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C8996FA-4A65-4521-F83A-D2641D331381}|Assembly-CSharp.csproj|solutionrelative:assets\\thecircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "dispatch.cs",
+              "DocumentMoniker": "C:\\Users\\plazm\\CokerWare\\Assets\\dispatch.cs",
+              "RelativeDocumentMoniker": "Assets\\dispatch.cs",
+              "ToolTip": "C:\\Users\\plazm\\CokerWare\\Assets\\dispatch.cs",
+              "RelativeToolTip": "Assets\\dispatch.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T04:36:58.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "scoreCount.cs",
+              "DocumentMoniker": "C:\\Users\\plazm\\CokerWare\\Assets\\scoreCount.cs",
+              "RelativeDocumentMoniker": "Assets\\scoreCount.cs",
+              "ToolTip": "C:\\Users\\plazm\\CokerWare\\Assets\\scoreCount.cs",
+              "RelativeToolTip": "Assets\\scoreCount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T04:26:24.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SpawnScript.cs",
+              "DocumentMoniker": "C:\\Users\\plazm\\CokerWare\\Assets\\SpawnScript.cs",
+              "RelativeDocumentMoniker": "Assets\\SpawnScript.cs",
+              "ToolTip": "C:\\Users\\plazm\\CokerWare\\Assets\\SpawnScript.cs",
+              "RelativeToolTip": "Assets\\SpawnScript.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAACkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T23:31:09.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "camZoom.cs",
+              "DocumentMoniker": "C:\\Users\\plazm\\CokerWare\\Assets\\camZoom.cs",
+              "RelativeDocumentMoniker": "Assets\\camZoom.cs",
+              "ToolTip": "C:\\Users\\plazm\\CokerWare\\Assets\\camZoom.cs",
+              "RelativeToolTip": "Assets\\camZoom.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAA2wCkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T01:36:26.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "lifeCount.cs",
+              "DocumentMoniker": "C:\\Users\\plazm\\CokerWare\\Assets\\lifeCount.cs",
+              "RelativeDocumentMoniker": "Assets\\lifeCount.cs",
+              "ToolTip": "C:\\Users\\plazm\\CokerWare\\Assets\\lifeCount.cs",
+              "RelativeToolTip": "Assets\\lifeCount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T19:28:17.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "barTimer.cs",
+              "DocumentMoniker": "C:\\Users\\plazm\\CokerWare\\Assets\\barTimer.cs",
+              "RelativeDocumentMoniker": "Assets\\barTimer.cs",
+              "ToolTip": "C:\\Users\\plazm\\CokerWare\\Assets\\barTimer.cs",
+              "RelativeToolTip": "Assets\\barTimer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-11T22:10:14.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "theCircle.cs",
+              "DocumentMoniker": "C:\\Users\\plazm\\CokerWare\\Assets\\theCircle.cs",
+              "RelativeDocumentMoniker": "Assets\\theCircle.cs",
+              "ToolTip": "C:\\Users\\plazm\\CokerWare\\Assets\\theCircle.cs",
+              "RelativeToolTip": "Assets\\theCircle.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA2wCYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T22:56:31.111Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
