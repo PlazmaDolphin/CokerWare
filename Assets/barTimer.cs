@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class barTimer : MonoBehaviour
 {
-    public TextMeshPro display;
+    public TextMeshProUGUI display;
     public int ticks = 8; //could vary per game
     private static float ticklen = 1f; //varies throughout session
     public static bool expired = false;

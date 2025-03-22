@@ -7,7 +7,7 @@ using UnityEditor.SceneManagement;
 [InitializeOnLoad]
 public class SceneRendererSwitcher
 {
-    private static readonly string Scene3D = "3DTestScene"; // Replace with your actual 3D scene name
+    private static readonly string Scene3D = "screw"; // Replace with your actual 3D scene name
     private static readonly int Renderer2DIndex = 0; // Index of 2D Renderer in URP settings
     private static readonly int Renderer3DIndex = 1; // Index of 3D Renderer in URP settings
 

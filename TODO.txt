@@ -1,7 +1,7 @@
 ===THE COKERWARE EXPERIENCE===
 
 Same idea as WarioWare
-Microgames (3-7 seconds per game)
+Microgames (4-10 seconds per game)
 Collections based on control method:
 	Mouse (Click, drag, flick, hover, scroll)
 	Keyboard (WASD, Space, enter)
@@ -24,6 +24,16 @@ To program:
 	Give each circle a number
 	Ensure proper order (1, 2, 3, 4)
 	Indicate circle was clicked
+
+2. Screw!
+	Move the mouse clockwise to screw in the screw
+	Higher Levels: Screw gets stuck (have to move on the outer edge of screen), unscrew, screw in multiple screws
+To program:
+    Convert mouse drag to angle
+	Reject passing through center of screen
+	    Show animation of screwdriver stripping if this happens
+	Show screwing direction, hide on input
+	Do camera transition to reveal fully built object
 
 To program any microgame:
 	- Timer
