@@ -8,6 +8,7 @@ public class gameSpeed : MonoBehaviour
     private static List<float> speeds = new List<float> {1.0f, 1.2f, 1.5f, 1.75f, 2.0f, 2.3f};
     public static List<int> speedLvls = new List<int> {3, 6, 9, 12, 15};
     public static int currentSpeedIndex = 0;
+    public static float currentSpeed { get { return speeds[currentSpeedIndex]; } }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

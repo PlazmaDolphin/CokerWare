@@ -963,7 +963,6 @@ MonoBehaviour:
   winned: {fileID: 1798212297}
   ct: {fileID: 556957643}
   win: {fileID: 556957646}
-  lose: {fileID: 556957644}
   deadCircle: {fileID: 1967277784}
   winAnim: {fileID: 961739754}
 --- !u!4 &556957642
@@ -1001,6 +1000,7 @@ MonoBehaviour:
   rotationText: {fileID: 1467391901}
   stopRadius: 100
   squeakAudio: {fileID: 556957645}
+  tooClose: {fileID: 556957644}
   guideArrows: {fileID: 287299582}
   thisDragAngle: 0
   storedAngle: 0

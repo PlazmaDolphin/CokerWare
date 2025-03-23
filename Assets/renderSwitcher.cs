@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.Rendering.Universal;
@@ -36,3 +37,4 @@ public class SceneRendererSwitcher
         }
     }
 }
+#endif
