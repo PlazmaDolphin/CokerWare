@@ -8,10 +8,13 @@ public class cursorTrack : MonoBehaviour
     public TextMeshProUGUI rotationText; // UI Text to display rotation info
     public float stopRadius = 50f; // Stop drag when this close to center (in UI pixels)
 
+    public AudioSource squeakAudio, tooClose; // Assign an AudioSource with the squeak sound in the Inspector
+    public GameObject guideArrows;
     private bool isDragging = false;
     private Vector2 lastMouseDirection;
     public float thisDragAngle, storedAngle;
     private Vector2 uiCenter; // UI-space center of the canvas
+    private int lastFullRevolutions = 0; // To track when a full revolution occurs
 
     void Start()
     {
@@ -37,6 +40,7 @@ public class cursorTrack : MonoBehaviour
             isDragging = false;
             storedAngle += thisDragAngle;
             thisDragAngle = 0f;
+            lastFullRevolutions = Mathf.FloorToInt((storedAngle + thisDragAngle) / 360f); // Reset revolution tracking
             UpdateRotationText();
         }
     }
@@ -45,6 +49,7 @@ public class cursorTrack : MonoBehaviour
     {
         Vector2 mousePos = GetMouseUIPosition();
         Vector2 toMouse = mousePos - uiCenter; // Now correctly centered
+        guideArrows.SetActive(false);
 
         if (toMouse.magnitude < stopRadius) return; // Don't start if too close
 
@@ -61,18 +66,38 @@ public class cursorTrack : MonoBehaviour
 
         if (toMouse.magnitude < stopRadius && toMouse.magnitude != 0) // Stop if mouse gets too close
         {
-            Debug.Log("Stopping drag, " + toMouse.magnitude + " < " + stopRadius);
             isDragging = false;
             UpdateRotationText();
+            tooClose.Play();
             return;
         }
 
         Vector2 currentDir = toMouse.normalized;
         float angleDelta = Vector2.SignedAngle(lastMouseDirection, currentDir);
-        thisDragAngle -= angleDelta; //clockwise = positive
+        thisDragAngle -= angleDelta; // Clockwise = positive
         lastMouseDirection = currentDir;
 
+        CheckForFullRevolution();
         UpdateRotationText();
+    }
+
+    void CheckForFullRevolution()
+    {
+        int currentFullRevolutions = Mathf.FloorToInt((storedAngle + thisDragAngle) / 360f);
+        
+        if (currentFullRevolutions > lastFullRevolutions) // If a new full revolution is completed
+        {
+            PlaySqueakSound();
+            lastFullRevolutions = currentFullRevolutions; // Update last counted revolution
+        }
+    }
+
+    void PlaySqueakSound()
+    {
+        if (squeakAudio != null && !squeakAudio.isPlaying)
+        {
+            squeakAudio.Play();
+        }
     }
 
     Vector2 GetMouseUIPosition()
@@ -98,14 +123,14 @@ public class cursorTrack : MonoBehaviour
         stopRadiusCircle.anchoredPosition = uiCenter; // Set to UI center
 
         // Adjust the size to match stopRadius
-        float adjustedRadius = stopRadius / canvasRect.lossyScale.x;
-        stopRadiusCircle.sizeDelta = new Vector2(adjustedRadius*1.2f, adjustedRadius*1.2f);
+        float adjustedRadius = stopRadius ;//* canvasRect.lossyScale.x;
+        stopRadiusCircle.sizeDelta = new Vector2(adjustedRadius * 2f, adjustedRadius * 2f);
     }
 
     void UpdateRotationText()
     {
         if (rotationText == null) return;
 
-        rotationText.text = $"Drag angle: {thisDragAngle/360f:F2} revs\nTotal angle: {(storedAngle+thisDragAngle)/360f:F2} revs";
+        rotationText.text = $"Drag angle: {thisDragAngle / 360f:F2} revs\nTotal angle: {(storedAngle + thisDragAngle) / 360f:F2} revs";
     }
 }

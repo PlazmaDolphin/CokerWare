@@ -1,8 +1,5 @@
 using System.Collections;
-using System.ComponentModel;
-using NUnit.Framework;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

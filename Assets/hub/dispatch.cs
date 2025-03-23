@@ -19,7 +19,7 @@ public class dispatch : MonoBehaviour
     public gameSpeed theSpeed;
     public int nextIndex;
     private bool speedingUp = false;
-    private const int IMPLEMENTEDGAMES = 1;
+    private const int IMPLEMENTEDGAMES = 2;
     public List<string> prompts = new() {
         "YOU CANT SEE THIS",
         "Click in order!",

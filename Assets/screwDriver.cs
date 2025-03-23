@@ -1,4 +1,5 @@
-using NUnit.Framework.Constraints;
+using System.Collections;
+using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -11,9 +12,15 @@ public class screwDriver : MonoBehaviour
     public TextMeshProUGUI text, winned;
     public cursorTrack ct;
     private bool gameEnded = false;
+    public AudioSource win;
+    public GameObject deadCircle;
+    public Animator winAnim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        foreach (AudioSource audioSource in FindObjectsByType<AudioSource>(FindObjectsSortMode.None)){
+            audioSource.pitch = Time.timeScale;
+        }
         FINALPOSX = transform.position.x;
         INITPOSX = FINALPOSX + TURNS * SCREWPITCH;
         transform.position = new Vector3(INITPOSX, transform.position.y, transform.position.z);
@@ -33,6 +40,10 @@ public class screwDriver : MonoBehaviour
             barTimer.halt = true;
             dispatch.failed = false;
             gameEnded = true;
+            win.Play();
+            winAnim.enabled = true;
+            deadCircle.SetActive(false);
+            StartCoroutine(sendBackAsync(1.5f));
         }
         //if time expired
         if (barTimer.expired) {
@@ -40,7 +51,17 @@ public class screwDriver : MonoBehaviour
             winned.color = Color.red;
             winned.enabled = true;
             barTimer.halt = true;
+            dispatch.failed = true;
             gameEnded = true;
+            StartCoroutine(sendBackAsync(0.7f));
         }
+    }
+
+    private IEnumerator sendBackAsync(float delay){ 
+        UnityEngine.AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0);
+        asyncLoad.allowSceneActivation = false;
+        yield return new WaitForSeconds(delay);
+        asyncLoad.allowSceneActivation = true;
+        while (!asyncLoad.isDone) { yield return null; }
     }
 }
