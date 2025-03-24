@@ -4,11 +4,12 @@ using UnityEditor;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Rendering;
 using UnityEditor.SceneManagement;
+using System.Collections.Generic;
 
 [InitializeOnLoad]
 public class SceneRendererSwitcher
 {
-    private static readonly string Scene3D = "screw"; // Replace with your actual 3D scene name
+    private static readonly List<string> Scene3D = new List<string>{"screw", "defuse"}; // Replace with your actual 3D scene name
     private static readonly int Renderer2DIndex = 0; // Index of 2D Renderer in URP settings
     private static readonly int Renderer3DIndex = 1; // Index of 3D Renderer in URP settings
 
@@ -26,7 +27,7 @@ public class SceneRendererSwitcher
 
             if (defaultRendererProp != null)
             {
-                if (next.name == Scene3D)
+                if (Scene3D.Contains(next.name))
                     defaultRendererProp.intValue = Renderer3DIndex; // Switch to 3D renderer
                 else
                     defaultRendererProp.intValue = Renderer2DIndex; // Switch to 2D renderer
