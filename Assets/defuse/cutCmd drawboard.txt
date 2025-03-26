@@ -1,0 +1,31 @@
+NO MORE THAN 100 CHARACTERS
+
+Starts:
+Hey dummy,
+Sir, please
+You must
+You need to
+
+Negations:
+Not
+Never
+Avoid (V)
+Refrain from (V)
+Back down from (V)
+Abstain from (V)
+
+Filler:
+Just
+Simply
+Immediately
+
+"Cut(ting) the [color] wire"
+
+Ends:
+or you'll die!
+or you'll live! (N)
+to detonate the bomb! (N)
+to defuse the bomb!
+Hurry up!
+
+You better refrain from perfectly disregarding ignoring cutting the blue wire to detonate the bomb!
