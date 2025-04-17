@@ -4,25 +4,18 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class ConvolutedWireGame : MonoBehaviour
-{
-    public TextMeshPro commandText;
-    
-    private string correctWire;
+public class SentenceGenerator : MonoBehaviour{
     private static System.Random random = new System.Random();
     private const int MAXCHARS = 140;
-    void Start()
-    {
-        GenerateCommand();
-    }
+
     //For sentence generation, please modify for funny results
     string[] starts = {"Hey dummy, ", "You better ", "You need to ", "Sir, please "};
     string[] negationWords = {"not ", "never ", "avoid ", "skip ", "ignore ", "refrain from ", "steer clear of ", "forgo ", "disregard "};
     string[] negationsIng = {"not ", "never ", "avoiding ", "skipping ", "ignoring ", "refraining from ", "steering clear of ", "forgoing ", "disregarding "};
-    string[] filler = {"just ", "simply ", "perfectly ", "quickly ", "properly ", "immediately "};
+    string[] filler = {"just ", "simply ", "perfectly ", "quickly ", "properly ", "immediately ", "actually "};
     string[] ends = {" or you'll die!", " to defuse the bomb!", " to save everyone!", ". Hurry up!", ". Go ahead, Cut!"};
     string[] endsNeg = {" or you'll live!", " to detonate the bomb!", " to kill everyone!"};
-    string ConstructCommand(int negations, string theWire)
+    public string ConstructCommand(int negations, string theWire)
     {
         /*
         RULE: DO NOT EXCEED 120 Characters!
@@ -76,14 +69,5 @@ public class ConvolutedWireGame : MonoBehaviour
         string theMeat = string.Join("", all.OrderBy(x => Guid.NewGuid()));
         //Put it all together :)
         return start + firstNeg + theMeat + core + end;
-    }
-
-    void GenerateCommand()
-    {
-        string[] wires = { "red", "blue", "white" };
-        correctWire = wires[random.Next(wires.Length)];
-        int negationCount = random.Next(2, 6);
-        string command = ConstructCommand(negationCount, correctWire);
-        commandText.text = command + (negationCount%2==0 ? "\n(Cut!)" : "\n(Don't Cut!)");
     }
 }

@@ -19,15 +19,11 @@ public class dispatch : MonoBehaviour
     public gameSpeed theSpeed;
     public int nextIndex;
     private bool speedingUp = false;
-    private const int IMPLEMENTEDGAMES = 3;
+    private const int IMPLEMENTEDGAMES = 4;
     public List<string> prompts = new() {
         "YOU CANT SEE THIS",
         "Click in order!",
-        "Screw!",
-        "Detect Treasure!",
-        "Flirt!",
-        "Insult!",
-        "Defuse!"
+        "Screw!"
     };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,7 +57,7 @@ public class dispatch : MonoBehaviour
     private void doTimeline() {
         if(speedingUp){
             speedUpSFX.Play();
-            this.transform.position += new Vector3(10, 0, 0);
+            transform.position += new Vector3(10, 0, 0);
             Invoke(nameof(ZO), 0f);
             Invoke(nameof(clearScreen), 4.0f);
             Invoke(nameof(pickNext), 5.1f);
@@ -82,6 +78,7 @@ public class dispatch : MonoBehaviour
     }
     public void pickNext() {
         nextIndex = UnityEngine.Random.Range(1, IMPLEMENTEDGAMES+1);
+        Debug.Log(prompts.Count + " " + nextIndex);
         BBText.text = prompts[nextIndex];
         nextSFX.Play();
     }

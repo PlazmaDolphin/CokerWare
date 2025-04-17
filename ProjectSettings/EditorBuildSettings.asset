@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/dig.unity
     guid: 924c6e0bf0145554a9d59f36fc0eef93
+  - enabled: 1
+    path: Assets/Scenes/defuse.unity
+    guid: bd4b95c5aea87d34ea2ac6efde20c6f4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
