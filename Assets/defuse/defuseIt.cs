@@ -16,6 +16,13 @@ public class defuseIt : MonoBehaviour
     private bool cutSaidWire = false, gameOver = false;
     void Start(){
         genPrompt();
+        foreach (AudioSource audioSource in FindObjectsByType<AudioSource>(FindObjectsSortMode.None)){
+            audioSource.pitch = Time.timeScale;
+        }
+        if (Application.platform == RuntimePlatform.WebGLPlayer){
+            boomVid.source = VideoSource.Url;
+            boomVid.url = Application.absoluteURL + "output_baseline.mp4";
+        }
     }
     void Update()
     {
@@ -52,7 +59,7 @@ public class defuseIt : MonoBehaviour
             cmdText.text = stage==1 ? "NICE!" : "DEFUSED";
             // if both wires cut, win
             if (stage==1) Invoke("genPrompt", 2f); //Wait 2 seconds before generating a new prompt
-            else{} //bomb defused, win
+            else {winTheGame();} //bomb defused, win
             stage = 2;
         }
         else{
@@ -67,7 +74,7 @@ public class defuseIt : MonoBehaviour
             wireInQuestion = Random.Range(0, 3);
         } while (wireInQuestion == cutWireA); //Ensure the wire in question is not the one that was cut
         string wire = wireInQuestion==RED ? "red" : wireInQuestion==WHITE ? "white" : "blue";
-        int negs = Random.Range(2, 5);
+        int negs = Random.Range(2, 6); //2-5 negations
         cutSaidWire = negs%2==0; //Even number of negations -> double negative, cut
         string prompt = confusion.ConstructCommand(negs, wire);
         cmdText.text = prompt;
@@ -92,8 +99,10 @@ public class defuseIt : MonoBehaviour
         loader.allowSceneActivation = true;
     }
     void winTheGame(){
+        gameOver = true;
+        Debug.Log("Bomb defused!");
         dispatch.failed = false;
-        sendBackAsync(1.2f);
+        StartCoroutine(sendBackAsync(1.2f));
     }
     private IEnumerator sendBackAsync(float delay){ 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0);

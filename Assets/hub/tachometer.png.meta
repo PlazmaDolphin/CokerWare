@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1537a8612ff6b3045857e88d30e3d28c
+guid: 57cc92a7e6f70a4439ba8272bdf39938
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4360390788417139489
-    second: sand_0
+      213: -3648798135780562234
+    second: tachometer_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sand_0
+      name: tachometer_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1200
+        x: 184
+        y: 2
+        width: 652
+        height: 649
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1233d79d158338c30800000000000000
-      internalID: 4360390788417139489
+      spriteID: 6ca21bb7d6ddc5dc0800000000000000
+      internalID: -3648798135780562234
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      sand_0: 4360390788417139489
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

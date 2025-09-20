@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using TMPro;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,51 +15,77 @@ public class dispatch : MonoBehaviour
     public TextMeshProUGUI failText;
     public lifeCount lives;
     public CameraFollowAndZoom cam;
-    public AudioSource winSFX, loseSFX, nextSFX, speedUpSFX;
+    public AudioSource winSFX, loseSFX, nextSFX, speedUpSFX, levelUpSFX;
     public GameObject deadUI, scoreSign;
     public gameSpeed theSpeed;
     public int nextIndex;
-    private bool speedingUp = false;
+    private bool speedingUp = false, levelingUp = false;
     private const int IMPLEMENTEDGAMES = 4;
-    public List<string> prompts = new() {
+    private int TESTINGGAME = 0;
+    private List<string> prompts = new() {
         "YOU CANT SEE THIS",
         "Click in order!",
-        "Screw!"
+        "Screw!",
+        "Detect Treasure!",
+        "Defuse!"
     };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (failed) {
+        if (failed)
+        {
             BBText.text = "You Suck!";
             BBText.color = Color.red;
             lives.loseLife();
-            if (!lives.isAlive()) {
+            if (!lives.isAlive())
+            {
                 gameOver();
                 return;
             }
         }
-        else if (!firstGame) {
+        else if (!firstGame)
+        {
             BBText.text = "Good Boy!";
             BBText.color = Color.green;
             scoreCount.score += 1;
             //Check for speed up
-            if (gameSpeed.currentSpeedIndex<gameSpeed.speedLvls.Count &&
-                scoreCount.score == gameSpeed.speedLvls[gameSpeed.currentSpeedIndex]) {
+            int anyChange = theSpeed.shouldSpeed(scoreCount.score);
+            if (anyChange == -1)
+            {
                 Invoke(nameof(SP), 4f);
                 speedingUp = true;
                 BBText.text = "Speed Up!";
                 BBText.color = Color.blue;
             }
+            else if (anyChange == 1)
+            {
+                SP();
+                levelingUp = true;
+                BBText.text = "Level Up!";
+                BBText.color = Color.yellow;
+            }
         }
         firstGame = false;
         doTimeline();
     }
-    private void ZO(){ cam.ZoomOut(); } private void ZI(){cam.ZoomIn(); } private void SP(){theSpeed.speedUp();}
+    private void ZO(){ cam.ZoomOut(); } private void ZI(){cam.ZoomIn(); } private void SP(){theSpeed.speedUp();} private void TILT(){ cam.StartSlowTilt(); }
     private void doTimeline() {
         if(speedingUp){
             speedUpSFX.Play();
             transform.position += new Vector3(10, 0, 0);
             Invoke(nameof(ZO), 0f);
+            Invoke(nameof(clearScreen), 4.0f);
+            Invoke(nameof(pickNext), 5.1f);
+            Invoke(nameof(ZI), 6f);
+            Invoke(nameof(loadNext), 6.5f);
+            return;
+        }
+        if (levelingUp)
+        {
+            levelUpSFX.Play();
+            transform.position += new Vector3(10, 0, 0);
+            Invoke(nameof(ZO), 0f);
+            //Invoke(nameof(TILT), 1f);
             Invoke(nameof(clearScreen), 4.0f);
             Invoke(nameof(pickNext), 5.1f);
             Invoke(nameof(ZI), 6f);
@@ -77,8 +104,7 @@ public class dispatch : MonoBehaviour
         BBText.text = string.Empty; BBText.color = Color.white;
     }
     public void pickNext() {
-        nextIndex = UnityEngine.Random.Range(1, IMPLEMENTEDGAMES+1);
-        Debug.Log(prompts.Count + " " + nextIndex);
+        nextIndex = (TESTINGGAME==0) ? UnityEngine.Random.Range(1, IMPLEMENTEDGAMES+1) : TESTINGGAME;
         BBText.text = prompts[nextIndex];
         nextSFX.Play();
     }
@@ -106,13 +132,6 @@ public class dispatch : MonoBehaviour
         scoreSign.SetActive(false);
         deadUI.SetActive(true);
         failText.text = "You made it:\n" + (scoreCount.score>0? (scoreCount.score + " mi") : "NOWHERE");
-        /*TODO: On game over:
-         * Display game over message on monitor
-         Prevent camera movements and scene transitions
-         Activate (and create) game over UI
-         Make restarting possible
-         (Optional) make scene slow down and stop
-         JUST BEFORE final mile marker and display X.999 miles*/
     }
     public void quitLikeABitch() {
         Application.Quit();

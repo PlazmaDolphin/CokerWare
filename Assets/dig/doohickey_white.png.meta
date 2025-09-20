@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      doohickey_white_0: -1263141100508402657
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

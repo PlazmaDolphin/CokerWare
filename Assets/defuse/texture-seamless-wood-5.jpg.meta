@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      texture-seamless-wood-5_0: -2031086125816927713
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

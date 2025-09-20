@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dynapickupRoughness_0: -5667758936869228869
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SentenceGenerator : MonoBehaviour{
     private static System.Random random = new System.Random();
-    private const int MAXCHARS = 140;
+    private const int MAXCHARS = 150;
 
     //For sentence generation, please modify for funny results
     string[] starts = {"Hey dummy, ", "You better ", "You need to ", "Sir, please "};
