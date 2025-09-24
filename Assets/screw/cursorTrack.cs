@@ -16,11 +16,16 @@ public class cursorTrack : MonoBehaviour
     private Vector2 uiCenter; // UI-space center of the canvas
     private int lastFullRevolutions = 0; // To track when a full revolution occurs
 
-    void Start()
-    {
+    void Start() {
         UpdateUICenter();
-        UpdateStopRadiusCircle();
         UpdateRotationText();
+        if (screwDriver.reversed) {
+            //vertically flip guideArrows, taking its current scale into account
+            guideArrows.transform.localScale = new Vector3(-guideArrows.transform.localScale.x, guideArrows.transform.localScale.y, guideArrows.transform.localScale.z);
+        }
+        if (gameSpeed.currentDifficulty >= 2)
+            stopRadius *= 3.5f;
+        UpdateStopRadiusCircle();
     }
 
     void Update()
@@ -83,7 +88,7 @@ public class cursorTrack : MonoBehaviour
 
     void CheckForFullRevolution()
     {
-        int currentFullRevolutions = Mathf.FloorToInt((storedAngle + thisDragAngle) / 360f);
+        int currentFullRevolutions = Mathf.FloorToInt((storedAngle + thisDragAngle) / (screwDriver.reversed ? -360f: 360f));
         
         if (currentFullRevolutions > lastFullRevolutions) // If a new full revolution is completed
         {

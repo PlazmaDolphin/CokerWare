@@ -6,11 +6,11 @@ public class gameSpeed : MonoBehaviour
     //List of speeds
     public Transform needlePivot, tacPivot;
     // Table of when Speed and Difficulty changes at Level
-    private static List<(float S, int D, int L)> speeds = new()
-    {
-        (1.0f, 0, 0), (1.3f, 0, 1), (1.65f, 0, 2), (2f, 0, 3),
-        (1f, 1, 4), (1.4f, 1, 5), (1.8f, 1, 6), (2.2f, 1, 7),
-        (1f, 2, 8), (1.5f, 2, 9), (2f, 2, 10), (2.5f, 2, 11)
+    private static List<(float S, int D, int L)> speeds = new() {
+        /*       (1.0f, 0, 0), (1.3f, 0, 1), (1.65f, 0, 2), (2f, 0, 3),
+               (1f, 1, 4), (1.4f, 1, 5), (1.8f, 1, 6), (2.2f, 1, 7),
+               (1f, 2, 8), (1.5f, 2, 9), (2f, 2, 10), (2.5f, 2, 11) */
+        (1.0f, 0, 0), (1f, 1, 1), (2f, 1, 2), (1f, 2, 3), (2f, 2, 4)
     };
     private static int currentSpeedIndex = 0;
     public static float currentSpeed { get { return speeds[currentSpeedIndex].S; } }

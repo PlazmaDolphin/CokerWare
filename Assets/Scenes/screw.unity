@@ -489,7 +489,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -2.4, y: 2.4, z: 2.4}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 229478490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -965,6 +965,7 @@ MonoBehaviour:
   win: {fileID: 556957646}
   deadCircle: {fileID: 1967277784}
   winAnim: {fileID: 961739754}
+  otherScrew: {fileID: 1452383915}
 --- !u!4 &556957642
 Transform:
   m_ObjectHideFlags: 0
@@ -2302,6 +2303,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 212712953}
   m_SourcePrefab: {fileID: 100100000, guid: 748e87b8e5b98bc4e98436f35bbf0a79, type: 3}
+--- !u!4 &1452383915 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 19bff3d23ef82aa4a9ceacf439b65fa2, type: 3}
+  m_PrefabInstance: {fileID: 308238254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1467391900
 GameObject:
   m_ObjectHideFlags: 0

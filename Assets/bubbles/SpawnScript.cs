@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,15 +12,15 @@ public class SpawnScript : MonoBehaviour
     public GameObject circlePrefab;
     private int objects = 8;
     private float radius = 3f;
-    private int num = 1;
+    private List<int> nums = new();
     private bool expireCodeRan = false;
     private static bool completed = false, sendingBack = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        buildNumArray();
         //adjust pitch of all audio sources to match game speed
-        foreach (AudioSource audioSource in FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
-        {
+        foreach (AudioSource audioSource in FindObjectsByType<AudioSource>(FindObjectsSortMode.None)) {
             audioSource.pitch = Time.timeScale;
         }
         completed = false;
@@ -28,8 +30,7 @@ public class SpawnScript : MonoBehaviour
                 Vector3 spawnPoint = new Vector3(Random.Range(-8.8f + radius, 8.8f - radius), Random.Range(-5f + radius, 5f - radius));
                 if (!Physics2D.OverlapCircle(spawnPoint, radius)) {
                     GameObject c = Instantiate(circlePrefab, spawnPoint, Quaternion.identity);
-                    c.GetComponent<theCircle>().setData(radius*1.4f, num);
-                    num++;
+                    c.GetComponent<theCircle>().setData(radius*1.4f, nums[i]);
                     radius *= 0.85f; //CHANGE THIS
                     break;
                 }
@@ -37,7 +38,20 @@ public class SpawnScript : MonoBehaviour
         }
         winTxt = theWinTxt;
     }
-    private IEnumerator sendBackAsync(){ 
+    private void buildNumArray() {
+        for (int i = 0; i < objects; i++) {
+            nums.Add(i + 1);
+        }
+        if (gameSpeed.currentDifficulty == 1) {
+            nums.Reverse();
+        }
+        if (gameSpeed.currentDifficulty == 2) {
+            nums = nums.OrderBy(x => Random.Range(0, int.MaxValue)).ToList();
+        }
+    }
+
+    private IEnumerator sendBackAsync()
+    {
         UnityEngine.AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0);
         asyncLoad.allowSceneActivation = false;
         yield return new WaitForSeconds(0.8f);

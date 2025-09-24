@@ -7,23 +7,34 @@ using UnityEngine;
 public class screwDriver : MonoBehaviour
 {
     private const float SCREWPITCH = 0.023f;
-    private const int TURNS = 9;
+    private int TURNS = 9;
     private float INITPOSX, FINALPOSX;
     public TextMeshProUGUI text, winned;
     public cursorTrack ct;
     private bool gameEnded = false;
+    public static bool reversed;
     public AudioSource win;
     public GameObject deadCircle;
     public Animator winAnim;
+    public Transform otherScrew;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        foreach (AudioSource audioSource in FindObjectsByType<AudioSource>(FindObjectsSortMode.None)){
+    void Start() {
+        foreach (AudioSource audioSource in FindObjectsByType<AudioSource>(FindObjectsSortMode.None)) {
             audioSource.pitch = Time.timeScale;
         }
+        if (gameSpeed.currentDifficulty >= 2) TURNS -= 2; //cant make it too hard right
         FINALPOSX = transform.position.x;
         INITPOSX = FINALPOSX + TURNS * SCREWPITCH;
+        if (gameSpeed.currentDifficulty >= 1 && UnityEngine.Random.Range(0, 2) == 1) {
+            float temp;
+            temp = FINALPOSX;
+            FINALPOSX = INITPOSX;
+            INITPOSX = temp;
+            reversed = true;
+        }
+        else reversed = false;
         transform.position = new Vector3(INITPOSX, transform.position.y, transform.position.z);
+        otherScrew.position = new Vector3(FINALPOSX, otherScrew.position.y, otherScrew.position.z);
     }
 
     // Update is called once per frame
@@ -34,7 +45,8 @@ public class screwDriver : MonoBehaviour
         transform.rotation = quaternion.Euler((ct.storedAngle+ct.thisDragAngle)/180f*math.PI, 0, 0);
         //Display number of turns and total progress
         text.text = "Screw IN:  I\nScrew OUT: O\n\nScrew Position:\n"+((INITPOSX - transform.position.x) / SCREWPITCH).ToString("F3")+"Turns\nProgress: "+((INITPOSX - transform.position.x) / (FINALPOSX - INITPOSX) * -100).ToString("F1")+"%";
-        if (transform.position.x <= FINALPOSX) {
+        if (transform.position.x <= FINALPOSX && !reversed ||
+            transform.position.x >= FINALPOSX && reversed) {
             winned.text = "you winned";
             winned.enabled = true;
             barTimer.halt = true;
