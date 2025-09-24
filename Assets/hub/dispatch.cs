@@ -21,7 +21,7 @@ public class dispatch : MonoBehaviour
     public int nextIndex;
     private bool speedingUp = false, levelingUp = false;
     private const int IMPLEMENTEDGAMES = 4;
-    private int TESTINGGAME = 2;
+    private int TESTINGGAME = 3;
     private List<string> prompts = new() {
         "YOU CANT SEE THIS",
         "Click in order!",
