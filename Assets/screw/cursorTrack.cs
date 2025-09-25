@@ -79,7 +79,7 @@ public class cursorTrack : MonoBehaviour
 
         Vector2 currentDir = toMouse.normalized;
         float angleDelta = Vector2.SignedAngle(lastMouseDirection, currentDir);
-        thisDragAngle -= angleDelta; // Clockwise = positive
+        thisDragAngle += screwDriver.reversed ? angleDelta : -angleDelta; // Clockwise = positive
         lastMouseDirection = currentDir;
 
         CheckForFullRevolution();
@@ -88,7 +88,7 @@ public class cursorTrack : MonoBehaviour
 
     void CheckForFullRevolution()
     {
-        int currentFullRevolutions = Mathf.FloorToInt((storedAngle + thisDragAngle) / (screwDriver.reversed ? -360f: 360f));
+        int currentFullRevolutions = Mathf.FloorToInt((storedAngle + thisDragAngle) / (screwDriver.reversed ? 360f: 360f));
         
         if (currentFullRevolutions > lastFullRevolutions) // If a new full revolution is completed
         {
@@ -99,7 +99,7 @@ public class cursorTrack : MonoBehaviour
 
     void PlaySqueakSound()
     {
-        if (squeakAudio != null && !squeakAudio.isPlaying)
+        if (squeakAudio != null)
         {
             squeakAudio.Play();
         }

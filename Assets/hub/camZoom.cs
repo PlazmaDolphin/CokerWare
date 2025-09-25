@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraFollowAndZoom : MonoBehaviour {
     public Transform target; // The object the camera will follow
     private float tilt = 30f; // degrees to tilt when zoomed out (positive tilts down)
-    private const float TILTPERLEVEL = 15f;
+    private const float TILTPERLEVEL = 25f;
     public Vector3 revFromPos;
     private float followSpeed = 5f; // Speed at which the camera follows the target
     private float zoomDuration = 0.5f; // Time in seconds to zoom in fully

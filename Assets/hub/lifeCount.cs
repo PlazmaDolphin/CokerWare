@@ -10,7 +10,9 @@ public class lifeCount : MonoBehaviour
     {
 
     }
-
+    public static int getLives() {
+        return lives;
+    }
     public void loseLife() {
         lives--;
         //Animation stuff later?

@@ -41,8 +41,10 @@ public class screwDriver : MonoBehaviour
     void Update()
     {
         if (gameEnded) return;
-        transform.position = new Vector3(INITPOSX - (ct.storedAngle+ct.thisDragAngle)/360f * SCREWPITCH, transform.position.y, transform.position.z);
-        transform.rotation = quaternion.Euler((ct.storedAngle+ct.thisDragAngle)/180f*math.PI, 0, 0);
+        float pos = (ct.storedAngle + ct.thisDragAngle) / 360f * SCREWPITCH;
+        float ang = (ct.storedAngle + ct.thisDragAngle) / 180f * math.PI;
+        transform.position = new Vector3(INITPOSX+ (reversed ? pos : -pos), transform.position.y, transform.position.z);
+        transform.rotation = quaternion.Euler(ang, 0, 0);
         //Display number of turns and total progress
         text.text = "Screw IN:  I\nScrew OUT: O\n\nScrew Position:\n"+((INITPOSX - transform.position.x) / SCREWPITCH).ToString("F3")+"Turns\nProgress: "+((INITPOSX - transform.position.x) / (FINALPOSX - INITPOSX) * -100).ToString("F1")+"%";
         if (transform.position.x <= FINALPOSX && !reversed ||
