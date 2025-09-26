@@ -15,7 +15,7 @@ public class SentenceGenerator : MonoBehaviour{
     string[] filler = {"just ", "simply ", "perfectly ", "quickly ", "properly ", "immediately ", "actually "};
     string[] ends = {" or you'll die!", " to defuse the bomb!", " to save everyone!", ". Hurry up!", ". Go ahead, Cut!"};
     string[] endsNeg = {" or you'll live!", " to detonate the bomb!", " to kill everyone!"};
-    string[] endsCondition = {" unless you're on mile {0}", " unless you have {0} lives left"};
+    string[] endsCondition = {", unless you're on mile {0}.", ", unless you have {0} lives left."};
     public string ConstructCommand(int negations, string theWire) {
     /*
     RULE: DO NOT EXCEED 120 Characters!
@@ -36,7 +36,7 @@ public class SentenceGenerator : MonoBehaviour{
           s += UnityEngine.Random.Range(0, 2) == 1 ? 1 : -1;
         }
         else negations -= 1; //counts as a negative phrase
-        end = string.Format(endsCondition[0], scoreCount.score);
+        end = string.Format(endsCondition[0], s);
       }
       else if (qType == 1) {
         int lives = lifeCount.getLives();

@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/defuse.unity
     guid: bd4b95c5aea87d34ea2ac6efde20c6f4
+  - enabled: 1
+    path: Assets/Scenes/title.unity
+    guid: a0824f4bbdcf726429498b73d5115224
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

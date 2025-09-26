@@ -32,6 +32,7 @@ public class dispatch : MonoBehaviour {
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
+        resetAll();
         Invoke(nameof(listen), IGNOREINPUTTIME);
         if (failed) {
             BBText.text = "You Suck!";
@@ -124,6 +125,7 @@ public class dispatch : MonoBehaviour {
         lives.resetLives();
         failed = false;
         firstGame = true;
+        deadUI.SetActive(false);
         SceneManager.LoadScene(0);
     }
     private void gameOver() {
@@ -134,6 +136,6 @@ public class dispatch : MonoBehaviour {
     }
     public void quitLikeABitch() {
         if (ignoreInput) return;
-        Application.Quit();
+        SceneManager.LoadScene(IMPLEMENTEDGAMES + 1);
     }
 }
